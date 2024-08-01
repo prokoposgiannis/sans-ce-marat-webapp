@@ -21,10 +21,22 @@ const config: Config = {
       },
       colors: {
         customGray: '#d6d6d6',
-        sidePanelsColor: '#cce8b5',
+        sidePanelsColor: '#64748b',
+      },
+      keyframes: {
+        autoRotateAnimation: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+      },
+      animation: {
+        autoRotate: 'autoRotateAnimation 1s linear infinite',
       },
     },
   },
   plugins: [],
 };
 export default config;
+
+
+
