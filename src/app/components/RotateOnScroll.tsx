@@ -1,11 +1,15 @@
 "use client"
 
-import React, { useEffect } from 'react';
+import React, { useEffect, FC } from 'react';
 
-const RotateOnScroll = () => {
+interface RotateOnScrollProps {
+    position: string;
+}
+
+const RotateOnScroll:FC<RotateOnScrollProps> = ({position}) => {
   useEffect(() => {
     const handleScroll = () => {
-      const rotation = window.scrollY / 10; 
+      const rotation = window.scrollY / 10;
       document.documentElement.style.setProperty('--rotation', `${rotation}deg`);
     };
 
@@ -13,10 +17,12 @@ const RotateOnScroll = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const pos = `fixed ${position} transform rotate-[var(--rotation)] rounded-lg font-bold text-white`
+
   return (
-      <div className="fixed top-1/2 right-0 transform rotate-[var(--rotation)] rounded-lg font-bold text-white">
+      <div className={pos}>
       <svg
-            fill="#000000"
+            fill="#d6d6d6"
             version="1.1"
             id="Capa_1"
             xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +30,8 @@ const RotateOnScroll = () => {
             width="12rem"
             height="12rem"
             viewBox="0 0 45.973 45.973"
-            xmlSpace="preserve"
+            xmlSpace="preserve" 
+            filter='drop-shadow(0px 0px 5px rgb(0 0 0 / 0.4))'           
         >
             <g>
                 <g>
