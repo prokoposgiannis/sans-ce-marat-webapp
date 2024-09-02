@@ -3,10 +3,6 @@ import { FC } from "react";
 
 interface ArticleCardProps {
     content: {
-        // anchor?: string;
-        // year: string;
-        // text: string;
-        // id: number;
     anchor: string;
     imageUrl: string;
     year: string;
@@ -17,7 +13,6 @@ interface ArticleCardProps {
 }
 
 const ArticleCard: FC<ArticleCardProps> = ({ content }) => {
-    // console.log(content);
     return (
         <div className="flex flex-col lg:flex-row h-auto lg:h-[30rem] w-full lg:w-[60rem] bg-customGray m-6 p-6 lg:p-10 justify-evenly shadow-custom rounded-custom">
             <div className="w-full lg:w-1/2 h-60 lg:h-auto bg-slate-500 rounded-2xl mb-6 lg:mb-0">
