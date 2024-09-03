@@ -7,15 +7,12 @@ import { fetchDateData } from "@/app/firebase";
 export default function CardsList() {
   const [dayData, setDayData] = useState<CardContent[]>([]);
 
-
   useEffect(() => {
     const fetchData = async () => {
       console.log(dayData)
 
       const data: CardContent[] = await fetchDateData("2008");
       setDayData(data);
-      console.log(dayData)
-
     };
 
     fetchData();
