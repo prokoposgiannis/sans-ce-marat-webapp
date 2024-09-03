@@ -5,4 +5,8 @@ export interface CardContent {
     text: string;
     id: number;
     tags: string[];
-  }
+}
+
+export interface ArticleCardProps {
+    content: CardContent;
+}

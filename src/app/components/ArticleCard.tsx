@@ -1,16 +1,6 @@
 import Image from 'next/image'
 import { FC } from "react";
-
-interface ArticleCardProps {
-    content: {
-    anchor: string;
-    imageUrl: string;
-    year: string;
-    text: string;
-    id: number;
-    tags: string[];
-    };
-}
+import { ArticleCardProps } from "@/app/components/types/types"
 
 const ArticleCard: FC<ArticleCardProps> = ({ content }) => {
     return (
@@ -28,6 +18,11 @@ const ArticleCard: FC<ArticleCardProps> = ({ content }) => {
                 <h1 className="text-center mb-4">{content.year}</h1>
                 <p>{content.text}</p>
             </div>
+            {content.tags.map(e=>{
+                if (e.type === "text") {
+                    return <p>{e.text}</p>
+                }
+            })}
         </div>
     );
 }
