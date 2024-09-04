@@ -16,18 +16,22 @@ const ArticleCard: FC<ArticleCardProps> = ({ content }) => {
                         height: '100%',     
                     }}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    width={300}
-                    height={300}
+                    width={100}
+                    height={100}
                     priority
                 />
             </div>
             <div className="w-full lg:w-1/2 text-xl lg:text-2xl px-4 lg:px-6">
                 <h1 className="text-center mb-4">{content.year}</h1>
-                <p>{content.tags.slice(1).map((e, index)=>{
-                    if (e.type === "text") {
-                        return e.text;
-                    } else if (e.type === "anchor") {
-                        return <a key={index} className="text-violet-500" href={`${e.href}`}>{e.text}</a>
+                <p>{content.tags.map((e, index)=>{
+                    if (e.type === "text" || e.type === "i-text") {
+                        if (index === 0) {
+                            return e.text.slice(2);
+                        } else {
+                            return e.text;
+                        }
+                    } else if (e.type === "anchor" || e.type === "i-anchor") {
+                        return <a key={index} className="text-indigo-600" href={`${e.href}`}>{e.text}</a>
                     }
                 })}
                 </p>
