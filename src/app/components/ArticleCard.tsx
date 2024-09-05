@@ -5,15 +5,16 @@ import { ArticleCardProps } from "@/app/components/types/types"
 const ArticleCard: FC<ArticleCardProps> = ({ content }) => {
     return (
         <div className="flex flex-col lg:flex-row h-auto lg:h-[30rem] w-full lg:w-[60rem] bg-customGray m-6 p-6 lg:p-10 justify-evenly shadow-custom rounded-custom">
-            <div className="w-full lg:w-1/2 h-60 lg:h-auto bg-slate-500 rounded-2xl mb-6 lg:mb-0">
+            <div className="w-full lg:w-1/2 h-60 lg:h-auto rounded-2xl mb-6 lg:mb-0">
                 <Image
                     src={`${content.imageUrl}`}
                     alt="External Image"
                     unoptimized
                     style={{
-                        objectFit: "cover", 
+                        objectFit: "contain", 
                         width: '100%',      
-                        height: '100%',     
+                        height: '100%', 
+                        padding: "6px",    
                     }}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     width={100}
