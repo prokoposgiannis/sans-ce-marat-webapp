@@ -29,21 +29,10 @@ export default function CardsList() {
 
   return (
     <div className="flex overflow-x-hidden flex-col w-10/12 min-h-screen justify-center items-center bg-customGray">
-      {dayData.map((c) => (
-        <ArticleCard key={c.id} content={c} />
-      ))}
-      <a
-        href="#"
-        onClick={(e) => {
-          e.preventDefault();
-          openModalWithUrl('https://el.wikipedia.org/wiki/Λιβερία'); // External URL
-        }}
-      >
-        Open External Link
-      </a>
-
-      {/* Modal Component */}
       <Modal showModal={showModal} closeModal={() => setShowModal(false)} url={externalUrl} />
+      {dayData.map((c) => (
+        <ArticleCard key={c.id} content={c} openModalWithUrl={openModalWithUrl}/>
+      ))}
     </div>
   );
 }
