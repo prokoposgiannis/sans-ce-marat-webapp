@@ -2,11 +2,11 @@
 
 import React, { useEffect, FC } from 'react';
 
-interface RotateOnScrollProps {
+interface RotateOnScrollGearProps {
     position: string;
 }
 
-const RotateOnScroll:FC<RotateOnScrollProps> = ({position}) => {
+const RotateOnScrollGear:FC<RotateOnScrollGearProps> = ({position}) => {
   useEffect(() => {
     const handleScroll = () => {
       const rotation = window.scrollY / 10;
@@ -31,7 +31,6 @@ const RotateOnScroll:FC<RotateOnScrollProps> = ({position}) => {
             height="12rem"
             viewBox="0 0 45.973 45.973"
             xmlSpace="preserve" 
-            filter='drop-shadow(0px 0px 5px rgb(0 0 0 / 0.4))'           
         >
             <g>
                 <g>
@@ -55,4 +54,4 @@ const RotateOnScroll:FC<RotateOnScrollProps> = ({position}) => {
   );
 };
 
-export default RotateOnScroll;
+export default RotateOnScrollGear;

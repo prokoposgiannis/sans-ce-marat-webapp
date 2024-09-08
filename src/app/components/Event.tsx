@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import { FC } from "react";
-import { ArticleCardProps } from "@/app/components/types/types"
+import { EventProps } from "@/app/components/types/types"
 
-const ArticleCard: FC<ArticleCardProps> = ({ content, openModalWithUrl }) => {
+const Event: FC<EventProps> = ({ content, openModalWithUrl }) => {
+
     return (
         <div className="flex flex-col lg:flex-row h-auto lg:h-[30rem] w-full lg:w-[60rem] bg-customGray m-6 p-6 lg:p-10 justify-evenly shadow-custom rounded-custom">
             <div className="w-full lg:w-1/2 h-60 lg:h-auto rounded-2xl mb-6 lg:mb-0">
@@ -32,7 +33,7 @@ const ArticleCard: FC<ArticleCardProps> = ({ content, openModalWithUrl }) => {
                             return e.text;
                         }
                     } else if (e.type === "anchor" || e.type === "i-anchor") {
-                        return <a key={index} className="text-indigo-600" href={`${e.href}`} onClick={(event)=>{
+                        return <a key={index} className="text-indigo-600" href="#" onClick={(event)=>{
                             event.preventDefault();
                             openModalWithUrl(e.href ?? "https://www.wikipedia.org")
                         }}>{e.text}</a>
@@ -44,4 +45,4 @@ const ArticleCard: FC<ArticleCardProps> = ({ content, openModalWithUrl }) => {
     );
 }
 
-export default ArticleCard;
+export default Event;

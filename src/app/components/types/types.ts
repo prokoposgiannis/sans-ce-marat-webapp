@@ -1,19 +1,18 @@
-interface Tag {
+interface EventTag {
     type: string;
     href?: string;
     text: string;
 }
 
-export interface CardContent {
+export interface EventContent {
     anchor: string;
     imageUrl: string;
     year: string;
-    text: string;
     id: number;
-    tags: Tag[];
+    tags: EventTag[];
 }
 
-export interface ArticleCardProps {
-    content: CardContent;
+export interface EventProps {
+    content: EventContent;
     openModalWithUrl: (url: string) => void;
 }

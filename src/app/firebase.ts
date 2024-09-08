@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc, collection, query, where, getDocs, QuerySnapshot, DocumentData } from "firebase/firestore";
-import { CardContent } from "@/app/components/types/types"
+import { EventContent } from "@/app/components/types/types"
 import { config } from "dotenv";
 
 config()
@@ -19,13 +19,13 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
-async function fetchDateData(date:string): Promise<CardContent[]> {
+async function fetchDateData(date:string): Promise<EventContent[]> {
   
   const q = query(collection(db, "events"), where("day", "==", date));
   const querySnapshot: QuerySnapshot<DocumentData> = await getDocs(q);
-  const cnt: CardContent[] = [];
+  const cnt: EventContent[] = [];
   querySnapshot.forEach((doc) => {
-  cnt.push(doc.data() as CardContent );
+  cnt.push(doc.data() as EventContent );
   });
 
 return cnt

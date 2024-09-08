@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Sans ce Marat",
-  description: "Όλες οι εξελίξεις, σαν σήμερα",
+  description: "Όλες τα γενονότα, σαν σήμερα",
 };
 
 export default function RootLayout({
