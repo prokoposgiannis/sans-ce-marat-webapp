@@ -10,6 +10,11 @@ export default function EventsListContainer() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [externalUrl, setExternalUrl] = useState<string>('');
 
+  let today = new Date();
+  let day = today.getDate();
+  let month = today.getMonth() + 1;
+  let dateToBeFetched = `${day > 9 ? day : `0${day}`}${month > 9 ? month : `0${month}`}`;
+
   const defaultData: EventContent[] = [
     {
       anchor: "#",
@@ -32,7 +37,7 @@ export default function EventsListContainer() {
     const fetchData = async () => {
       console.log(dayData)
 
-      const data: EventContent[] = await fetchDateData("2008");
+      const data: EventContent[] = await fetchDateData(dateToBeFetched);
       setDayData(data.length ? data : defaultData);
     };
 
