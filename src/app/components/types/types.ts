@@ -6,6 +6,7 @@ interface EventTag {
 
 export interface EventContent {
     anchor: string;
+    text: string;
     imageUrl: string;
     year: string;
     id: number;

@@ -21,6 +21,7 @@ export default function EventsListContainer() {
       imageUrl: "https://el.wikipedia.org/static/images/icons/wikipedia.png",
       year: "-",
       id: 1,
+      text: "Loading",
       tags: [{
         type: "text",
         text: "  Loading..",
@@ -35,18 +36,25 @@ export default function EventsListContainer() {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(dayData)
-
+      console.log(dateToBeFetched)
       const data: EventContent[] = await fetchDateData(dateToBeFetched);
       setDayData(data.length ? data : defaultData);
     };
-
+    
     fetchData();
-  }, []);
+    const animateElements = document.querySelectorAll(".animate");
+    animateElements.forEach((element, index)=> {
+      setTimeout(()=> {
+        element.classList.add("show");
+      }, index * 150);
+    })
+    
+  }, [dateToBeFetched]);
 
   return (
     <div className="flex overflow-x-hidden flex-col w-10/12 min-h-screen justify-center items-center bg-customGray">
       <Modal showModal={showModal} closeModal={() => setShowModal(false)} url={externalUrl} />
+        {/* {eventComponents} */}
       {dayData.map((c) => (
         <Event key={c.id} content={c} openModalWithUrl={openModalWithUrl}/>
       ))}
